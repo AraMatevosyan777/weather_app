@@ -1,0 +1,43 @@
+.cities{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.input{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.inner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.city{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-transform: uppercase;
+    margin: 0 10px 10px 0;
+}
+.city a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+.city input {
+    width: 80%;
+}
+.empty{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

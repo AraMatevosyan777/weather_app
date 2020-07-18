@@ -1,0 +1,57 @@
+.weather{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.currentWeather{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hourlyWeather{
+    width: 35%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+.hourlyWeatherItem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+}
+.hourlyWeatherItem *{
+    margin-right: 10px;
+}
+
+.dailyWeather{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.DailyWeatheritem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.DailyWeatheritem div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.currentDay{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

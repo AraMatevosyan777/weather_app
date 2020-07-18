@@ -1,0 +1,24 @@
+.nav{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: indigo;
+    position: relative;
+}
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 10px;
+}
+.toggle{
+    position: absolute;
+    right: 30px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50px;
+}
+.toggle input:last-child{
+    margin-left: 5px;
+}
