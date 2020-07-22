@@ -5,8 +5,8 @@ import Toggle from './Toggle'
 const Navbar = () => {
   return (
     <nav className={m.nav}>
-        <NavLink to='/weather'>Home</NavLink>
-        <NavLink to='/cities'>Favorite Cities</NavLink>
+        <NavLink activeClassName={m.active} to='/weather'>Home</NavLink>
+        <NavLink activeClassName={m.active} to='/cities'>Favorite Cities</NavLink>
         <Toggle/>
     </nav>
   )

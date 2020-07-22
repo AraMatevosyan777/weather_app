@@ -6,8 +6,10 @@ const DailyWeather = ({ daily, toggle, name, requestWeatherByDay, dt }) => {
   const celsius = Math.floor(daily.main.temp - 273.15)
   const fahrenheit = Math.floor((celsius * 9 / 5) + 32)
   const date = daily.dt_txt.slice(5,10)
+  const currentDate = new Date(dt * 1000).getDate()
+  const itemDate = new Date(daily.dt * 1000).getDate()
   return (
-    <div className={classNames(m.DailyWeatheritem, dt === daily.dt && m.currentDay)} onClick={()=> requestWeatherByDay(name, daily.dt_txt)}>
+    <div className={classNames(m.DailyWeatheritem, currentDate === itemDate && m.currentDay)} onClick={()=> requestWeatherByDay(name, daily.dt_txt)}>
       <div className="date">{date}</div>
       <div>
         {toggle

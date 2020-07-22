@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import m from './cities.module.css'
-
+import remove from '../../assets/delete.svg'
+import edit from '../../assets/edit.png'
+import save from '../../assets/save.svg'
 import { NavLink } from 'react-router-dom'
 
 const City = ({city, updateCity, onCityDelete}) => {
@@ -15,14 +17,14 @@ const City = ({city, updateCity, onCityDelete}) => {
             {!editMode
                 ?<>
                     <NavLink to={'/weather/' + city.name}>{city.name}</NavLink>
-                    <div>
-                        <button onClick={() => onCityDelete(city.id)}>Delete</button>
-                        <button onClick={() => setEditMode(true)}>Edit</button>
+                    <div className={m.icons}>
+                        <img className={m.icon} src={edit} alt="" onClick={() => setEditMode(true)}/>
+                        <img className={m.icon} src={remove} alt="" onClick={() => onCityDelete(city.id)}/>
                     </div>
                 </>
                 :<>
-                    <input value={currentName} onChange={(e) => setCurrentName(e.currentTarget.value)} />
-                    <button onClick={() => update(currentName, city.id)}>save</button>
+                    <input value={currentName} autoFocus onChange={(e) => setCurrentName(e.currentTarget.value)} />
+                    <img className={m.icon} src={save} alt="" onClick={() => update(currentName, city.id)}/>
                 </>
 
             }

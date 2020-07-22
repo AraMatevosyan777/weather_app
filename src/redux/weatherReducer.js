@@ -48,7 +48,7 @@ export const setToggle = (payload) => ({ type: SET_TOGGLE, payload })
 export const requestCurrentWeather = (lat, lon) => async (dispatch, getState) => {
   const response = await WeatherAPi.currentWeather(lat, lon)
   dispatch(setCurrentWeather(response.data))
-  dispatch(requestDailyWeather(response.data.name))
+  dispatch(requestDailyWeather(response.data.name, response.data.dt))
   const currentCity = {
     name: response.data.name,
     id: Date.now()
@@ -57,11 +57,9 @@ export const requestCurrentWeather = (lat, lon) => async (dispatch, getState) =>
   if(cities.length === 0){
     dispatch(addCity(currentCity))
   }else{
-    cities.every(city=>{
-      if(city.name !== currentCity.name){
+      if(cities.every(city=> city.name !== currentCity.name)){
         dispatch(addCity(currentCity))
       }
-    })
   }
 }
 
@@ -69,7 +67,7 @@ export const requestCityWeather = (name) => async (dispatch) => {
   try {
     const response = await WeatherAPi.cityWeather(name)
     dispatch(setCurrentWeather(response.data))
-    dispatch(requestDailyWeather(name))
+    dispatch(requestDailyWeather(name, response.data.dt))
   } catch{
     alert('city not found')
     browserHistory.push('/weather')
@@ -80,17 +78,14 @@ export const requestCityWeather = (name) => async (dispatch) => {
     })
   }
 }
-const requestDailyWeather = (name) => async (dispatch) => {
+const requestDailyWeather = (name, dt) => async (dispatch) => {
   const response = await WeatherAPi.dailyWeather(name)
   const daily = response.data.list.filter(item => {
-    // const currentTime = new Date().getHours()
+    const currentTime = new Date().getHours()
     const itemTime = new Date(item.dt_txt).getHours()
-    if (12 === itemTime) {
+    if(currentTime >= itemTime && currentTime < itemTime+3){
       return item
     }
-    // if(currentTime >= itemTime && currentTime < itemTime+3){
-    //   return item
-    // }
   })
   daily.filter(item => {
     const currentDate = new Date()
@@ -98,7 +93,14 @@ const requestDailyWeather = (name) => async (dispatch) => {
     if (currentDate !== itemDate) return item
   })
   dispatch(setDailyWeather(daily))
-  const hourly = response.data.list.slice(2, 10).map(item => { return item })
+  
+  const hourly = response.data.list.filter(item=>{
+    const currentTime = new Date().getDate()
+    const itemDate = new Date(item.dt_txt).getDate()
+    if(currentTime === itemDate){
+      return item
+    }
+  })
   dispatch(setHourlyWeather(hourly))
 }
 
