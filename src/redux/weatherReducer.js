@@ -6,12 +6,14 @@ const SET_CURRENT_WEATHER = 'SET_CURRENT_WEATHER'
 const SET_DAILY_WEATHER = 'SET_DAILY_WEATHER'
 const SET_HOURLY_WEATHER = 'SET_HOURLY_WEATHER'
 const SET_TOGGLE = 'SET_TOGGLE'
+const LOADING = 'LOADING'
 
 const initialState = {
   currentWeather: null,
   dailyWeather: [],
   hourlyWeather: [],
-  toggle: true
+  toggle: true,
+  loading: false,
 }
 
 export const weatherReducer = (state = initialState, action) => {
@@ -36,6 +38,11 @@ export const weatherReducer = (state = initialState, action) => {
         ...state,
         toggle: action.payload
       }
+    case LOADING:
+      return {
+        ...state,
+        loading: action.payload
+      }
     default: return state
   }
 }
@@ -44,41 +51,38 @@ const setCurrentWeather = (payload) => ({ type: SET_CURRENT_WEATHER, payload })
 const setDailyWeather = (payload) => ({ type: SET_DAILY_WEATHER, payload })
 const setHourlyWeather = (payload) => ({ type: SET_HOURLY_WEATHER, payload })
 export const setToggle = (payload) => ({ type: SET_TOGGLE, payload })
+const setLoading = (payload) => ({ type: LOADING, payload })
 
-export const requestCurrentWeather = (lat, lon) => async (dispatch, getState) => {
-  const response = await WeatherAPi.currentWeather(lat, lon)
-  dispatch(setCurrentWeather(response.data))
-  dispatch(requestDailyWeather(response.data.name, response.data.dt))
-  const currentCity = {
-    name: response.data.name,
-    id: Date.now()
-  }
-  const cities = getState().cities.cities
-  if(cities.length === 0){
-    dispatch(addCity(currentCity))
-  }else{
-      if(cities.every(city=> city.name !== currentCity.name)){
-        dispatch(addCity(currentCity))
-      }
-  }
-}
-
-export const requestCityWeather = (name) => async (dispatch) => {
-  try {
-    const response = await WeatherAPi.cityWeather(name)
-    dispatch(setCurrentWeather(response.data))
-    dispatch(requestDailyWeather(name, response.data.dt))
-  } catch{
+export const requestCurrentWeather = (cityParams, date) => async (dispatch, getState) => {
+  try{
+    const response = await WeatherAPi.currentWeather(cityParams)
+    dispatch(requestDailyWeather(response.data.name, response.data.dt))
+    dispatch(requestWeatherByDay(response.data.name, date))
+    const currentCity = {
+      name: response.data.name,
+      id: Date.now()
+    }
+    const cities = getState().cities.cities
+    if(cities.length === 0){
+      dispatch(addCity(currentCity))
+    }else{
+        if(cities.every(city=> city.name !== currentCity.name)){
+          dispatch(addCity(currentCity))
+        }
+    }
+  }catch(e){
     alert('city not found')
-    browserHistory.push('/weather')
+    browserHistory.push('/')
     navigator.geolocation.getCurrentPosition(function (position) {
       const lat = position.coords.latitude
       const lon = position.coords.longitude
-      dispatch(requestCurrentWeather(lat, lon))
+      const cityParams = `lat=${lat}&lon=${lon}`
+      dispatch(requestCurrentWeather(cityParams))
     })
   }
 }
-const requestDailyWeather = (name, dt) => async (dispatch) => {
+
+const requestDailyWeather = (name) => async (dispatch) => {
   const response = await WeatherAPi.dailyWeather(name)
   const daily = response.data.list.filter(item => {
     const currentTime = new Date().getHours()
@@ -93,20 +97,19 @@ const requestDailyWeather = (name, dt) => async (dispatch) => {
     if (currentDate !== itemDate) return item
   })
   dispatch(setDailyWeather(daily))
-  
-  const hourly = response.data.list.filter(item=>{
-    const currentTime = new Date().getDate()
+}
+
+export const requestWeatherByDay = (name, date) => async (dispatch) => {
+  dispatch(setLoading(true))
+  const response = await WeatherAPi.dailyWeather(name)
+  const current = response.data.list.filter(item => {
     const itemDate = new Date(item.dt_txt).getDate()
-    if(currentTime === itemDate){
+    const itemHour = new Date(item.dt_txt).getHours()
+    const currentTime = new Date().getHours()
+    if(itemDate == date && currentTime >= itemHour && currentTime < itemHour+3){
       return item
     }
   })
-  dispatch(setHourlyWeather(hourly))
-}
-
-export const requestWeatherByDay = (name, dt_txt) => async (dispatch) => {
-  const response = await WeatherAPi.dailyWeather(name)
-  const current = response.data.list.filter(item => item.dt_txt === dt_txt)
   const currentWeather = {
     ...response.data.city,
     ...current[0]
@@ -114,14 +117,14 @@ export const requestWeatherByDay = (name, dt_txt) => async (dispatch) => {
   dispatch(setCurrentWeather(currentWeather))
 
   const hourly = response.data.list.filter(item => {
-    const itemDtTxt = item.dt_txt.slice(0, 10)
-    const dtTxt = dt_txt.slice(0, 10)
-    if (itemDtTxt === dtTxt) return item
+    const itemDate = new Date(item.dt_txt).getDate()
+    if (itemDate == date) return item
   })
   const hourlyWeather = [
     ...hourly
   ]
   dispatch(setHourlyWeather(hourlyWeather))
+  dispatch(setLoading(false))
 }
 
 

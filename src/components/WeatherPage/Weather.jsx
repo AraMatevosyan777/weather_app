@@ -1,32 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import m from './weather.module.css'
-import { connect } from 'react-redux'
-import { requestCurrentWeather, requestCityWeather, requestWeatherByDay } from '../../redux/weatherReducer'
-import { withRouter } from 'react-router-dom'
-import Loader from '../Loader'
 import DailyWeather from './DailyWeather'
 import CurrentWeather from './CurrentWeather'
 import HourlyWeather from './HourlyWeather'
 
 const Weather = (props) => {
-    const {requestCurrentWeather, requestCityWeather, currentWeather, 
-        match, dailyWeather, hourlyWeather, requestWeatherByDay, toggle} = props
-    useEffect(() => {
-        if(match.params.city){
-            requestCityWeather(match.params.city)
-        }else{
-            navigator.geolocation.getCurrentPosition(function (position) {
-                let lat = position.coords.latitude
-                let lon = position.coords.longitude
-                requestCurrentWeather(lat, lon)
-            })
-        }
-    }, [match.params.city, requestCityWeather, requestCurrentWeather])
+    const { currentWeather, dailyWeather, hourlyWeather, requestWeatherByDay, toggle, loading} = props
    
-    if (!currentWeather) return <Loader/>
     return (
         <div className={m.weather}>
-            <CurrentWeather currentWeather={currentWeather} toggle={toggle}/>
+            <div className={m.currentWeather}>
+                <CurrentWeather currentWeather={currentWeather} toggle={toggle} loading={loading}/>
+            </div>
             <div className={m.hourlyWeather}>
                 {hourlyWeather.map(hourly=> <HourlyWeather key={hourly.dt} hourly={hourly} toggle={toggle}/>)}
             </div>
@@ -44,11 +29,4 @@ const Weather = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    currentWeather: state.weather.currentWeather,
-    dailyWeather: state.weather.dailyWeather,
-    hourlyWeather: state.weather.hourlyWeather,
-    toggle: state.weather.toggle
-})
-export default withRouter(connect(mapStateToProps, 
-    { requestCurrentWeather, requestCityWeather, requestWeatherByDay })(Weather))
+export default Weather
