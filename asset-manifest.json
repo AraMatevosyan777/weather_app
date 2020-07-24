@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/weather_app/static/css/main.a7864f93.chunk.css",
-    "main.js": "/weather_app/static/js/main.afefa41f.chunk.js",
-    "main.js.map": "/weather_app/static/js/main.afefa41f.chunk.js.map",
-    "runtime-main.js": "/weather_app/static/js/runtime-main.c28633ec.js",
-    "runtime-main.js.map": "/weather_app/static/js/runtime-main.c28633ec.js.map",
-    "static/js/2.8ee83e2e.chunk.js": "/weather_app/static/js/2.8ee83e2e.chunk.js",
-    "static/js/2.8ee83e2e.chunk.js.map": "/weather_app/static/js/2.8ee83e2e.chunk.js.map",
-    "index.html": "/weather_app/index.html",
-    "precache-manifest.f479b8a265fbb759b32e2e1630969e3a.js": "/weather_app/precache-manifest.f479b8a265fbb759b32e2e1630969e3a.js",
-    "service-worker.js": "/weather_app/service-worker.js",
-    "static/css/main.a7864f93.chunk.css.map": "/weather_app/static/css/main.a7864f93.chunk.css.map",
-    "static/js/2.8ee83e2e.chunk.js.LICENSE.txt": "/weather_app/static/js/2.8ee83e2e.chunk.js.LICENSE.txt",
-    "static/media/loader.svg": "/weather_app/static/media/loader.5b18094e.svg"
+    "main.css": "/%7BGithub-repo-name%7D/static/css/main.b63bece4.chunk.css",
+    "main.js": "/%7BGithub-repo-name%7D/static/js/main.fb5df5d2.chunk.js",
+    "main.js.map": "/%7BGithub-repo-name%7D/static/js/main.fb5df5d2.chunk.js.map",
+    "runtime-main.js": "/%7BGithub-repo-name%7D/static/js/runtime-main.153dcaef.js",
+    "runtime-main.js.map": "/%7BGithub-repo-name%7D/static/js/runtime-main.153dcaef.js.map",
+    "static/js/2.23b3384d.chunk.js": "/%7BGithub-repo-name%7D/static/js/2.23b3384d.chunk.js",
+    "static/js/2.23b3384d.chunk.js.map": "/%7BGithub-repo-name%7D/static/js/2.23b3384d.chunk.js.map",
+    "index.html": "/%7BGithub-repo-name%7D/index.html",
+    "precache-manifest.3d028ecd9bb55ef9a79bd306d40dffb9.js": "/%7BGithub-repo-name%7D/precache-manifest.3d028ecd9bb55ef9a79bd306d40dffb9.js",
+    "service-worker.js": "/%7BGithub-repo-name%7D/service-worker.js",
+    "static/css/main.b63bece4.chunk.css.map": "/%7BGithub-repo-name%7D/static/css/main.b63bece4.chunk.css.map",
+    "static/js/2.23b3384d.chunk.js.LICENSE.txt": "/%7BGithub-repo-name%7D/static/js/2.23b3384d.chunk.js.LICENSE.txt",
+    "static/media/delete.svg": "/%7BGithub-repo-name%7D/static/media/delete.12333ffe.svg",
+    "static/media/loader.svg": "/%7BGithub-repo-name%7D/static/media/loader.5b18094e.svg",
+    "static/media/save.svg": "/%7BGithub-repo-name%7D/static/media/save.a1ebfcf8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c28633ec.js",
-    "static/js/2.8ee83e2e.chunk.js",
-    "static/css/main.a7864f93.chunk.css",
-    "static/js/main.afefa41f.chunk.js"
+    "static/js/runtime-main.153dcaef.js",
+    "static/js/2.23b3384d.chunk.js",
+    "static/css/main.b63bece4.chunk.css",
+    "static/js/main.fb5df5d2.chunk.js"
   ]
 }
