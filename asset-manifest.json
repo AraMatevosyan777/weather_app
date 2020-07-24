@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/%7BGithub-repo-name%7D/static/css/main.b63bece4.chunk.css",
-    "main.js": "/%7BGithub-repo-name%7D/static/js/main.fb5df5d2.chunk.js",
-    "main.js.map": "/%7BGithub-repo-name%7D/static/js/main.fb5df5d2.chunk.js.map",
-    "runtime-main.js": "/%7BGithub-repo-name%7D/static/js/runtime-main.153dcaef.js",
-    "runtime-main.js.map": "/%7BGithub-repo-name%7D/static/js/runtime-main.153dcaef.js.map",
-    "static/js/2.23b3384d.chunk.js": "/%7BGithub-repo-name%7D/static/js/2.23b3384d.chunk.js",
-    "static/js/2.23b3384d.chunk.js.map": "/%7BGithub-repo-name%7D/static/js/2.23b3384d.chunk.js.map",
-    "index.html": "/%7BGithub-repo-name%7D/index.html",
-    "precache-manifest.3d028ecd9bb55ef9a79bd306d40dffb9.js": "/%7BGithub-repo-name%7D/precache-manifest.3d028ecd9bb55ef9a79bd306d40dffb9.js",
-    "service-worker.js": "/%7BGithub-repo-name%7D/service-worker.js",
-    "static/css/main.b63bece4.chunk.css.map": "/%7BGithub-repo-name%7D/static/css/main.b63bece4.chunk.css.map",
-    "static/js/2.23b3384d.chunk.js.LICENSE.txt": "/%7BGithub-repo-name%7D/static/js/2.23b3384d.chunk.js.LICENSE.txt",
-    "static/media/delete.svg": "/%7BGithub-repo-name%7D/static/media/delete.12333ffe.svg",
-    "static/media/loader.svg": "/%7BGithub-repo-name%7D/static/media/loader.5b18094e.svg",
-    "static/media/save.svg": "/%7BGithub-repo-name%7D/static/media/save.a1ebfcf8.svg"
+    "main.css": "/weather_app_gh_pages/static/css/main.b63bece4.chunk.css",
+    "main.js": "/weather_app_gh_pages/static/js/main.e8bc8991.chunk.js",
+    "main.js.map": "/weather_app_gh_pages/static/js/main.e8bc8991.chunk.js.map",
+    "runtime-main.js": "/weather_app_gh_pages/static/js/runtime-main.bb038fa8.js",
+    "runtime-main.js.map": "/weather_app_gh_pages/static/js/runtime-main.bb038fa8.js.map",
+    "static/js/2.23b3384d.chunk.js": "/weather_app_gh_pages/static/js/2.23b3384d.chunk.js",
+    "static/js/2.23b3384d.chunk.js.map": "/weather_app_gh_pages/static/js/2.23b3384d.chunk.js.map",
+    "index.html": "/weather_app_gh_pages/index.html",
+    "precache-manifest.a282ba607a23b678cf67a563322cecd8.js": "/weather_app_gh_pages/precache-manifest.a282ba607a23b678cf67a563322cecd8.js",
+    "service-worker.js": "/weather_app_gh_pages/service-worker.js",
+    "static/css/main.b63bece4.chunk.css.map": "/weather_app_gh_pages/static/css/main.b63bece4.chunk.css.map",
+    "static/js/2.23b3384d.chunk.js.LICENSE.txt": "/weather_app_gh_pages/static/js/2.23b3384d.chunk.js.LICENSE.txt",
+    "static/media/delete.svg": "/weather_app_gh_pages/static/media/delete.12333ffe.svg",
+    "static/media/loader.svg": "/weather_app_gh_pages/static/media/loader.5b18094e.svg",
+    "static/media/save.svg": "/weather_app_gh_pages/static/media/save.a1ebfcf8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.153dcaef.js",
+    "static/js/runtime-main.bb038fa8.js",
     "static/js/2.23b3384d.chunk.js",
     "static/css/main.b63bece4.chunk.css",
-    "static/js/main.fb5df5d2.chunk.js"
+    "static/js/main.e8bc8991.chunk.js"
   ]
 }
