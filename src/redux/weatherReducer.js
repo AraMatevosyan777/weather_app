@@ -10,8 +10,8 @@ const LOADING = 'LOADING'
 
 const initialState = {
   currentWeather: null,
-  dailyWeather: [],
-  hourlyWeather: [],
+  dailyWeather: null,
+  hourlyWeather: null,
   toggle: true,
   loading: false,
 }
@@ -19,9 +19,19 @@ const initialState = {
 export const weatherReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_WEATHER:
+      const currentWeather = {
+      dt: action.payload.dt, 
+      dt_txt: action.payload.dt_txt, 
+      temp: action.payload.main.temp, 
+      name: action.payload.name,
+      weather: {
+        icon: action.payload.weather[0].icon,
+        main: action.payload.weather[0].main
+      }
+      }
       return {
         ...state,
-        currentWeather: action.payload
+        currentWeather: currentWeather
       }
     case SET_DAILY_WEATHER:
       return {
@@ -96,10 +106,23 @@ const requestDailyWeather = (name) => async (dispatch) => {
     const itemDate = new Date(item.dt_txt)
     if (currentDate !== itemDate) return item
   })
-  dispatch(setDailyWeather(daily))
+  const payload = daily.map(item=>{
+    item = {
+      dt: item.dt,
+      dt_txt: item.dt_txt,
+      temp: item.main.temp, 
+      name: name,
+      weather: {
+        icon: item.weather[0].icon,
+        main: item.weather[0].main
+      }
+    }
+    return item
+  })
+  dispatch(setDailyWeather(payload))
 }
 
-export const requestWeatherByDay = (name, date) => async (dispatch) => {
+const requestWeatherByDay = (name, date) => async (dispatch) => {
   dispatch(setLoading(true))
   const response = await WeatherAPi.dailyWeather(name)
   const current = response.data.list.filter(item => {
@@ -120,10 +143,15 @@ export const requestWeatherByDay = (name, date) => async (dispatch) => {
     const itemDate = new Date(item.dt_txt).getDate()
     if (itemDate == date) return item
   })
-  const hourlyWeather = [
-    ...hourly
-  ]
-  dispatch(setHourlyWeather(hourlyWeather))
+  const payload = hourly.map(item=> {
+      item = {
+        temp: item.main.temp,
+        dt_txt: item.dt_txt,
+        icon: item.weather[0].icon
+      }
+      return item
+    })
+  dispatch(setHourlyWeather(payload))
   dispatch(setLoading(false))
 }
 

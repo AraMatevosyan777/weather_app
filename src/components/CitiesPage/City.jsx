@@ -4,6 +4,8 @@ import remove from '../../assets/delete.svg'
 import edit from '../../assets/edit.png'
 import save from '../../assets/save.svg'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import { cityType } from '../../types'
 
 const City = ({city, updateCity, onCityDelete}) => {
     const [editMode, setEditMode] = useState(false)
@@ -31,6 +33,12 @@ const City = ({city, updateCity, onCityDelete}) => {
 
         </div>
     )
+}
+
+City.propTypes = {
+    city: PropTypes.shape(cityType),
+    onCityDelete: PropTypes.func,
+    updateCity: PropTypes.func,
 }
 
 export default City

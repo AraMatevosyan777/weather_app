@@ -2,6 +2,7 @@ import React from 'react'
 import m from './nav.module.css'
 import { connect } from 'react-redux'
 import { setToggle } from '../../redux/weatherReducer'
+import PropTypes from 'prop-types';
 
 const Toggle = ({toggle,setToggle}) => {
     return (
@@ -11,6 +12,12 @@ const Toggle = ({toggle,setToggle}) => {
         </div>
     )
 }
+
+Toggle.propTypes = {
+    toggle: PropTypes.bool,
+    setToggle: PropTypes.func,
+}
+
 const mapStateToProps = (state) => ({
     toggle: state.weather.toggle
 })

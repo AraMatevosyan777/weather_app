@@ -3,6 +3,8 @@ import m from './cities.module.css'
 import { connect } from 'react-redux'
 import { addCity, onCityDelete, updateCity } from '../../redux/citiesReducer'
 import City from './City'
+import PropTypes from 'prop-types';
+import { cityType } from '../../types'
 
 const Cities = ({ cities, addCity, onCityDelete, updateCity }) => {
     const [name, setName] = useState('')
@@ -22,8 +24,6 @@ const Cities = ({ cities, addCity, onCityDelete, updateCity }) => {
         }
     }
 
-    
-
     return (
         <div className={m.cities}>
             <form onSubmit={add} className={m.input}>
@@ -42,6 +42,13 @@ const Cities = ({ cities, addCity, onCityDelete, updateCity }) => {
             </div>
         </div>
     )
+}
+
+Cities.propTypes = {
+    cities: PropTypes.arrayOf(PropTypes.shape(cityType)),
+    addCity: PropTypes.func,
+    onCityDelete: PropTypes.func,
+    updateCity: PropTypes.func,
 }
 
 const mapStateToProps = (state) => ({
