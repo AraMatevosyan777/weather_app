@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import m from './cities.module.css'
+import m from './index.module.css'
 import { connect } from 'react-redux'
-import { addCity, onCityDelete, updateCity } from '../../redux/citiesReducer'
+import { addCity, onCityDelete, updateCity } from '../../redux/actions'
 import City from './City'
 import PropTypes from 'prop-types';
 import { cityType } from '../../types'

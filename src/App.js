@@ -1,18 +1,18 @@
 import React from 'react'
 import './App.css'
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Navbar'
 import {Route, Redirect, withRouter} from 'react-router-dom'
-import Cities from './components/CitiesPage/Cities'
-import WeatherContainer from './components/WeatherPage/WeatherContainer'
+import routes from './Routes/publicRoutes'
 
 const App = () => {
     return (
     <div className='app'>
       <Navbar/>
       <div className='content'>
-        <Route exact path='/' render={()=> <Redirect to='/weather'/>}/> 
-        <Route path='/weather/:city?/:day?' render={()=> <WeatherContainer/>}/> 
-        <Route path='/cities' render={()=> <Cities/>}/>
+          {routes.map(route => 
+            (<Route key={route.path} path={route.path} component={route.component}/>)
+          )}
+          <Route exact path='/' render={()=> <Redirect to='/weather'/>}/>
       </div>
     </div>
   )

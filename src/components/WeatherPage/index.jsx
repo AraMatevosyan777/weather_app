@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Weather from './Weather'
 import { connect } from 'react-redux'
-import { requestCurrentWeather } from '../../redux/weatherReducer'
+import { requestCurrentWeather } from '../../redux/thunks'
 import { withRouter } from 'react-router-dom'
-import Loader from '../Loader'
+import Loader from '../common/Loader'
 import PropTypes from 'prop-types';
 import { currentWeatherType, hourlyWeatherType } from '../../types'
 

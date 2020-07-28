@@ -1,0 +1,23 @@
+/* toggle */
+.toggle{
+    position: absolute;
+    right: 30px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50px;
+}
+.toggle input:last-child{
+    margin-left: 5px;
+}
+.toggle input:hover{
+    cursor: pointer;
+}
+
+/* loader */
+.loader{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+/* ---------------------- */
