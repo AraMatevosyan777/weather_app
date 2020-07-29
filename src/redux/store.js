@@ -1,7 +1,7 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunkMiddleware  from 'redux-thunk'
-import { weatherReducer } from './weatherReducer'
-import { citiesReducer } from './citiesReducer'
+import { weatherReducer } from './weather/weatherReducer'
+import { citiesReducer } from './cities/citiesReducer'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 import { persistStore, persistReducer } from 'redux-persist'
 

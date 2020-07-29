@@ -1,4 +1,4 @@
-import WeatherContainer from '../components/WeatherPage/index'
+import WeatherContainer from '../containers/Weather/index'
 import Cities from '../components/CitiesPage/index'
 import { CITIES_PATH, WEATHER_PATH } from './paths'
 
