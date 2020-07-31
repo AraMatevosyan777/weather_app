@@ -1,21 +1,27 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { PersistGate } from 'redux-persist/integration/react'
+import { store, persistedStore } from './redux/store'
+import Navbar from './components/Navbar'
 import './App.css'
-import Navbar from './components/Navbar/Navbar'
-import {Route, Redirect, withRouter} from 'react-router-dom'
-import Cities from './components/CitiesPage/Cities'
-import WeatherContainer from './components/WeatherPage/WeatherContainer'
+import Routing from './Routes/Routing'
 
 const App = () => {
-    return (
-    <div className='app'>
-      <Navbar/>
-      <div className='content'>
-        <Route exact path='/' render={()=> <Redirect to='/weather'/>}/> 
-        <Route path='/weather/:city?/:day?' render={()=> <WeatherContainer/>}/> 
-        <Route path='/cities' render={()=> <Cities/>}/>
-      </div>
-    </div>
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistedStore}>
+        <Router>
+          <div className='app'>
+            <Navbar />
+            <div className='content'>
+              <Routing />
+            </div>
+          </div>
+        </Router>
+      </PersistGate>
+    </Provider>
   )
 }
 
-export default withRouter(App)
+export default App

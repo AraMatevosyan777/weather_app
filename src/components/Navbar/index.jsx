@@ -1,7 +1,7 @@
 import React from 'react'
-import m from './nav.module.css'
+import m from './index.module.css'
 import {NavLink} from 'react-router-dom'
-import Toggle from './Toggle'
+import Toggle from '../common/Toggle'
 const Navbar = () => {
   return (
     <nav className={m.nav}>

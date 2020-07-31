@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import m from './cities.module.css'
-import remove from '../../assets/delete.svg'
-import edit from '../../assets/edit.png'
-import save from '../../assets/save.svg'
+import m from './index.module.css'
+import remove from '../../assets/images/delete.svg'
+import edit from '../../assets/images/edit.png'
+import save from '../../assets/images/save.svg'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { cityType } from '../../types'

@@ -1,6 +1,4 @@
-const ADD_CITY = 'ADD_CITY'
-const DELETE_CITY = 'DELETE_CITY'
-const UPDATE_CITY = 'UPDATE_CITY'
+import { DELETE_CITY, UPDATE_CITY, ADD_CITY } from "./actions"
 
 const initialState = {
   cities: []
@@ -32,6 +30,3 @@ export const citiesReducer = (state = initialState, action) => {
   }
 }
 
-export const addCity = (city) => ({ type: ADD_CITY, city })
-export const onCityDelete = (id) => ({ type: DELETE_CITY, id })
-export const updateCity = (name, id) => ({ type: UPDATE_CITY, name, id })

@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from '../Loader'
+import Loading from '../common/Loader'
 import { currentWeatherType } from '../../types'
 import PropTypes from 'prop-types';
 
