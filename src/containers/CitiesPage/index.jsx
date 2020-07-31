@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import m from './index.module.css'
 import { connect } from 'react-redux'
-import { addCity, onCityDelete, updateCity } from '../../redux/actions'
-import City from './City'
+import { addCity, onCityDelete, updateCity } from '../../redux/cities/actions'
 import PropTypes from 'prop-types';
 import { cityType } from '../../types'
+import City from '../../components/City';
 
 const Cities = ({ cities, addCity, onCityDelete, updateCity }) => {
     const [name, setName] = useState('')

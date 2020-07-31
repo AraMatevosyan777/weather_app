@@ -1,5 +1,5 @@
-import WeatherContainer from '../components/WeatherPage/index'
-import Cities from '../components/CitiesPage/index'
+import WeatherContainer from '../containers/WeatherPage/index'
+import Cities from '../containers/CitiesPage/index'
 import { CITIES_PATH, WEATHER_PATH } from './paths'
 
 const WEATHER = {

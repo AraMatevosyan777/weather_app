@@ -1,6 +1,7 @@
-import { addCity, setDailyWeather, setLoading, setCurrentWeather, setHourlyWeather } from "./actions"
-import { WeatherAPi } from "../api/api"
+import { setDailyWeather, setLoading, setCurrentWeather, setHourlyWeather } from "./actions"
+import { WeatherAPi } from "../../api/api"
 import { createBrowserHistory } from 'history';
+import { addCity } from "../cities/actions";
 
 const browserHistory = createBrowserHistory();
 

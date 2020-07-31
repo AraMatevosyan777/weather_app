@@ -1,6 +1,5 @@
 import { SET_CURRENT_WEATHER, SET_DAILY_WEATHER, SET_HOURLY_WEATHER, SET_TOGGLE, LOADING } from "./actions";
 
-
 const initialState = {
   currentWeather: null,
   dailyWeather: null,

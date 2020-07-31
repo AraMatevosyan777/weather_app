@@ -1,7 +1,7 @@
 import React from 'react'
 import m from './index.module.css'
 import { connect } from 'react-redux'
-import { setToggle } from '../../redux/actions'
+import { setToggle } from '../../redux/weather/actions'
 import PropTypes from 'prop-types';
 
 const Toggle = ({toggle,setToggle}) => {
