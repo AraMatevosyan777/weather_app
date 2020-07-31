@@ -1,12 +1,8 @@
 import { setDailyWeather, setLoading, setCurrentWeather, setHourlyWeather } from "./actions"
 import { WeatherAPi } from "../../api/api"
-import { createBrowserHistory } from 'history';
-import { addCity } from "../cities/actions";
-
-const browserHistory = createBrowserHistory();
+import { addCurrentCity } from "../cities/actions";
 
 export const requestCurrentWeather = (cityParams, date) => async (dispatch, getState) => {
-    try{
       const response = await WeatherAPi.currentWeather(cityParams)
       dispatch(requestDailyWeather(response.data.name, response.data.dt))
       dispatch(requestWeatherByDay(response.data.name, date))
@@ -16,22 +12,12 @@ export const requestCurrentWeather = (cityParams, date) => async (dispatch, getS
       }
       const cities = getState().cities.cities
       if(cities.length === 0){
-        dispatch(addCity(currentCity))
+        dispatch(addCurrentCity(currentCity))
       }else{
           if(cities.every(city=> city.name !== currentCity.name)){
-            dispatch(addCity(currentCity))
+            dispatch(addCurrentCity(currentCity))
           }
       }
-    }catch(e){
-      alert('city not found')
-      browserHistory.push('/')
-      navigator.geolocation.getCurrentPosition(function (position) {
-        const lat = position.coords.latitude
-        const lon = position.coords.longitude
-        const cityParams = `lat=${lat}&lon=${lon}`
-        dispatch(requestCurrentWeather(cityParams))
-      })
-    }
   }
   
   const requestDailyWeather = (name) => async (dispatch) => {

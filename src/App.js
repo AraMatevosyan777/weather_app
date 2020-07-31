@@ -7,7 +7,9 @@ import Navbar from './components/Navbar'
 import './App.css'
 import Routing from './Routes/Routing'
 
+
 const App = () => {
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistedStore}>
