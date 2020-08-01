@@ -50,7 +50,7 @@ class WeatherContainer extends Component {
 
 WeatherContainer.propTypes = {
     currentWeather: PropTypes.shape(currentWeatherType) || null,
-    dailyWeather:  PropTypes.arrayOf(PropTypes.shape(currentWeatherType)) || null,
+    dailyWeather: PropTypes.arrayOf(PropTypes.shape(currentWeatherType)) || null,
     hourlyWeather: PropTypes.arrayOf(PropTypes.shape(hourlyWeatherType)) || null,
     toggle: PropTypes.bool,
     loading: PropTypes.bool,

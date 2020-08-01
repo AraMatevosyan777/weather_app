@@ -3,12 +3,12 @@ import Loading from '../common/Loader'
 import { currentWeatherType } from '../../types'
 import PropTypes from 'prop-types';
 
-const CurrentWeather = ({currentWeather, toggle, loading}) => {
+const CurrentWeather = ({ currentWeather, toggle, loading }) => {
     const { name, temp, weather } = currentWeather
     const celsius = Math.floor(temp - 273.15)
     const fahrenheit = Math.floor((celsius * 9 / 5) + 32)
-    
-    if(loading)return <Loading/>
+
+    if (loading) return <Loading />
     return (
         <>
             <h3>{name}</h3>

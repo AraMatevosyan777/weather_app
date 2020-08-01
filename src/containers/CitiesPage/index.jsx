@@ -61,9 +61,7 @@ const Cities = ({ cities, addCity, onCityDelete }) => {
                             onCityDelete={onCityDelete} />)
                 }
             </div>
-
             <CityModal error={error} handleClose={() => setError('')} />
-
         </div>
     )
 }

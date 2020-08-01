@@ -1,10 +1,10 @@
 import React from 'react'
 import './index.css'
 import PropTypes from 'prop-types';
-import {Modal, Button} from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 
 const CityModal = ({ error, handleClose }) => {
-   
+
     return (
         <Modal
             show={!!error}
@@ -17,7 +17,7 @@ const CityModal = ({ error, handleClose }) => {
             </Modal.Header>
             <Modal.Body>
                 {error}
-        </Modal.Body>
+            </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close

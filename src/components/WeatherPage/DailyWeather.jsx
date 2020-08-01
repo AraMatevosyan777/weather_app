@@ -12,7 +12,7 @@ const DailyWeather = ({ daily, toggle, name, dt }) => {
   const currentDate = new Date(dt * 1000).getDate()
   const itemDate = new Date(daily.dt * 1000).getDate()
   return (
-    <NavLink to={`/weather/${name}/${itemDate}`} style={{color:'black', textDecoration:'none'}}>
+    <NavLink to={`/weather/${name}/${itemDate}`} style={{ color: 'black', textDecoration: 'none' }}>
       <div className={classNames(m.DailyWeatheritem, currentDate === itemDate && m.currentDay)}>
         <div className="date">{date}</div>
         <div>
@@ -28,7 +28,7 @@ const DailyWeather = ({ daily, toggle, name, dt }) => {
 }
 
 DailyWeather.propTypes = {
-  daily:  PropTypes.shape(currentWeatherType),
+  daily: PropTypes.shape(currentWeatherType),
   toggle: PropTypes.bool,
   name: PropTypes.string,
   dt: PropTypes.number,

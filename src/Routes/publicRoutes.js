@@ -7,7 +7,7 @@ const WEATHER = {
     path: WEATHER_PATH
 }
 const CITIES = {
-    component:  Cities,
+    component: Cities,
     path: CITIES_PATH
 }
 

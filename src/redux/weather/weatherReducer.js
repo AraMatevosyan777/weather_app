@@ -12,14 +12,14 @@ export const weatherReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_WEATHER:
       const currentWeather = {
-      dt: action.payload.dt, 
-      dt_txt: action.payload.dt_txt, 
-      temp: action.payload.main.temp, 
-      name: action.payload.name,
-      weather: {
-        icon: action.payload.weather[0].icon,
-        main: action.payload.weather[0].main
-      }
+        dt: action.payload.dt,
+        dt_txt: action.payload.dt_txt,
+        temp: action.payload.main.temp,
+        name: action.payload.name,
+        weather: {
+          icon: action.payload.weather[0].icon,
+          main: action.payload.weather[0].main
+        }
       }
       return {
         ...state,

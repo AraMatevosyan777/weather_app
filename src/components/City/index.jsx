@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { cityType } from '../../types'
 
 const City = ({ city, onCityDelete }) => {
-
     return (
         <div className={m.city} key={city.id}>
             <NavLink to={'/weather/' + city.name}>{city.name}</NavLink>

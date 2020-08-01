@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { setToggle } from '../../redux/weather/actions'
 import PropTypes from 'prop-types';
 
-const Toggle = ({toggle,setToggle}) => {
+const Toggle = ({ toggle, setToggle }) => {
     return (
         <div className={m.toggle}>
             <input name='toggle' type="radio" value='celsius' onChange={() => setToggle(true)} checked={toggle} />&deg;C
@@ -21,4 +21,4 @@ Toggle.propTypes = {
 const mapStateToProps = (state) => ({
     toggle: state.weather.toggle
 })
-export default connect(mapStateToProps,{setToggle})(Toggle)
+export default connect(mapStateToProps, { setToggle })(Toggle)
