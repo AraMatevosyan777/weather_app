@@ -27,17 +27,17 @@ const Cities = ({ cities, addCity, onCityDelete }) => {
                         return item
                     }
                 })
-                if(!stateFilter.length){
+                if (!stateFilter.length) {
                     let city = {
                         name: cityName,
                         id: Date.now()
                     }
                     addCity(city)
                     setName('')
-                }else{
+                } else {
                     setError('City is already added')
                 }
-                
+
             } else {
                 setError('City is not defined')
             }
@@ -61,9 +61,9 @@ const Cities = ({ cities, addCity, onCityDelete }) => {
                             onCityDelete={onCityDelete} />)
                 }
             </div>
-            {error &&
-                <CityModal error={error} setError={()=>setError('')}/>
-            }    
+
+            <CityModal error={error} handleClose={() => setError('')} />
+
         </div>
     )
 }
